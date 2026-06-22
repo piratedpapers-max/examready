@@ -877,18 +877,86 @@ function processFile(type,file){
   reader.onload=e=>{
     const img=new Image();
     img.onload=()=>{
-      const canvas=document.getElementById("workCanvas");
-      canvas.width=spec.w;canvas.height=spec.h;
-      const ctx=canvas.getContext("2d");
+
+      /* ── Step 1: use a 4× oversized canvas for high-quality downscale ── */
+      const SCALE=4;
+      const bigCanvas=document.createElement("canvas");
+      bigCanvas.width=spec.w*SCALE; bigCanvas.height=spec.h*SCALE;
+      const bigCtx=bigCanvas.getContext("2d");
+      bigCtx.imageSmoothingEnabled=true;
+      bigCtx.imageSmoothingQuality="high";
+
+      /* background fill on big canvas */
       const bgOpt=BG_OPTIONS.find(o=>o.name===cvState.bgName);
-      ctx.fillStyle=(type==="photo"&&bgOpt&&bgOpt.hex)?bgOpt.hex:"#ffffff";
+      const bgColor=(type==="photo"&&bgOpt&&bgOpt.hex)?bgOpt.hex:"#ffffff";
+      bigCtx.fillStyle=bgColor;
+      bigCtx.fillRect(0,0,bigCanvas.width,bigCanvas.height);
+
+      /* cover-fit: fill the frame, crop edges if needed (better for portraits) */
+      const scaleW=bigCanvas.width/img.width;
+      const scaleH=bigCanvas.height/img.height;
+      const scale=Math.max(scaleW,scaleH); /* cover */
+      const sw=img.width*scale, sh=img.height*scale;
+      const ox=(bigCanvas.width-sw)/2, oy=(bigCanvas.height-sh)/2;
+      bigCtx.drawImage(img,ox,oy,sw,sh);
+
+      /* ── Step 2: downscale to final canvas ── */
+      const canvas=document.getElementById("workCanvas");
+      canvas.width=spec.w; canvas.height=spec.h;
+      const ctx=canvas.getContext("2d");
+      ctx.imageSmoothingEnabled=true;
+      ctx.imageSmoothingQuality="high";
+      /* fill bg on final canvas too (safety) */
+      ctx.fillStyle=bgColor;
       ctx.fillRect(0,0,spec.w,spec.h);
-      const scale=Math.min(spec.w/img.width,spec.h/img.height);
-      const sw=img.width*scale,sh=img.height*scale;
-      ctx.drawImage(img,(spec.w-sw)/2,(spec.h-sh)/2,sw,sh);
-      let quality=0.94,dataUrl,kb;
-      do{dataUrl=canvas.toDataURL("image/jpeg",quality);kb=Math.round(dataUrl.length*.75/1024);quality-=0.05}while(kb>spec.maxKB&&quality>0.2);
-      const result={dataUrl,kb,w:spec.w,h:spec.h,spec};
+      ctx.drawImage(bigCanvas,0,0,spec.w,spec.h);
+
+      /* ── Step 3: smart quality — compress DOWN if too big, boost UP if too small ── */
+      let quality=0.97, dataUrl, kb;
+      dataUrl=canvas.toDataURL("image/jpeg",quality);
+      kb=Math.round(dataUrl.length*0.75/1024);
+
+      if(kb>spec.maxKB){
+        /* too large → compress down */
+        while(kb>spec.maxKB&&quality>0.20){
+          quality-=0.04;
+          dataUrl=canvas.toDataURL("image/jpeg",quality);
+          kb=Math.round(dataUrl.length*0.75/1024);
+        }
+      } else if(kb<spec.minKB){
+        /* too small → file was a tiny/simple image; re-render at larger intermediate
+           canvas to pad bytes, then scale back */
+        const padCanvas=document.createElement("canvas");
+        /* use 2× size temporarily to increase byte count */
+        padCanvas.width=spec.w*2; padCanvas.height=spec.h*2;
+        const pCtx=padCanvas.getContext("2d");
+        pCtx.imageSmoothingEnabled=true;
+        pCtx.imageSmoothingQuality="high";
+        pCtx.fillStyle=bgColor;
+        pCtx.fillRect(0,0,padCanvas.width,padCanvas.height);
+        /* re-draw original image at 2× size */
+        const s2=Math.max(padCanvas.width/img.width, padCanvas.height/img.height);
+        pCtx.drawImage(img,(padCanvas.width-img.width*s2)/2,(padCanvas.height-img.height*s2)/2,img.width*s2,img.height*s2);
+        /* now pull final canvas from 2× */
+        ctx.fillStyle=bgColor;
+        ctx.fillRect(0,0,spec.w,spec.h);
+        ctx.drawImage(padCanvas,0,0,spec.w,spec.h);
+        quality=0.97;
+        do{
+          dataUrl=canvas.toDataURL("image/jpeg",quality);
+          kb=Math.round(dataUrl.length*0.75/1024);
+          if(kb<spec.minKB)quality=Math.min(quality+0.01,1.0);
+          else break;
+          if(quality>=1.0)break;
+        }while(kb<spec.minKB);
+        /* if still under, that's fine — just use highest quality */
+        if(kb<spec.minKB){
+          dataUrl=canvas.toDataURL("image/jpeg",1.0);
+          kb=Math.round(dataUrl.length*0.75/1024);
+        }
+      }
+
+      const result={dataUrl,kb,w:spec.w,h:spec.h,spec,withinRange:kb>=spec.minKB&&kb<=spec.maxKB};
       if(type==="photo")cvState.photoResult=result;
       else if(type==="sig")cvState.sigResult=result;
       else cvState.thumbResult=result;
@@ -908,13 +976,13 @@ function renderResults(){
   const fail='<svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>';
   function rCard(result,label,specObj){
     if(!result)return"";
-    const okKB=result.kb>=specObj.minKB&&result.kb<=specObj.maxKB;
+    const okKB=result.withinRange!==undefined?result.withinRange:(result.kb>=specObj.minKB&&result.kb<=specObj.maxKB);
     return`<div class="result-card">
       <div class="result-card-header"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>${label}</div>
       <div class="result-preview"><img src="${result.dataUrl}" alt="${label} preview"></div>
       <div class="result-checks">
         <div class="check-row pass">${ok} ${result.w}×${result.h} px ✓</div>
-        <div class="check-row ${okKB?"pass":"fail"}">${okKB?ok:fail} ${result.kb} KB ${okKB?"✓":"— recompressing"}</div>
+        <div class="check-row ${okKB?"pass":"fail"}">${okKB?ok:fail} ${result.kb} KB ${okKB?"✓ in range":"⚠ outside range — download anyway"}</div>
         <div class="check-row pass">${ok} JPG format ✓</div>
       </div>
       <div class="result-actions"><button class="btn-download" onclick="dlSingle('${label.toLowerCase().replace(/\s+/g,'_')}',cvState.${label.toLowerCase().replace(/\s+/g,'')+'Result'})"><svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download ${label}</button></div>
