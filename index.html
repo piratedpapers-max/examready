@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== PRIMARY SEO ===== -->
+<title>ExamReady — Free Exam Photo & Signature Converter for UPSC, BPSC, BSSC, NEET, SSC</title>
+<meta name="description" content="Free online tool to resize and convert passport photo and signature for UPSC, BPSC, BSSC, Bihar Police, SSC, NEET, JEE, Railway exams. Also check age eligibility, exam fees, and document checklist. No upload needed — 100% private.">
+<meta name="keywords" content="exam photo converter, BPSC photo size, UPSC passport photo, BSSC signature size, NEET photo resize, SSC photo format, Bihar exam photo, competitive exam photo converter, exam photo resize online free, BPSC photo 213x284, signature resize, exam document checklist, age eligibility calculator UPSC BPSC">
+<meta name="author" content="ExamReady">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://examready-bice.vercel.app/">
+
+<!-- ===== LOCAL SEO — BIHAR / INDIA ===== -->
+<meta name="geo.region" content="IN-BR">
+<meta name="geo.placename" content="Patna, Bihar, India">
+<meta name="geo.position" content="25.5941;85.1376">
+<meta name="ICBM" content="25.5941, 85.1376">
+<meta name="language" content="English">
+<meta name="coverage" content="India">
+<meta name="distribution" content="global">
+<meta name="target" content="students, exam aspirants, competitive exam candidates">
+
+<!-- ===== OPEN GRAPH (WhatsApp / Facebook previews) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://examready-bice.vercel.app/">
+<meta property="og:title" content="ExamReady — Free Exam Photo Converter for UPSC, BPSC, NEET, SSC">
+<meta property="og:description" content="Resize your photo and signature to exact exam specifications in seconds. Covers UPSC, BPSC, BSSC, Bihar Police, NEET, JEE, SSC, Railway & more. Free, private, instant.">
+<meta property="og:image" content="https://examready-bice.vercel.app/og-image.png">
+<meta property="og:locale" content="en_IN">
+<meta property="og:site_name" content="ExamReady">
+
+<!-- ===== TWITTER CARD ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ExamReady — Free Exam Photo Converter">
+<meta name="twitter:description" content="Convert your photo & signature for UPSC, BPSC, NEET, SSC in seconds. Free & private.">
+
+<!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://examready-bice.vercel.app/#webapp",
+      "name": "ExamReady",
+      "url": "https://examready-bice.vercel.app/",
+      "description": "Free tool to convert passport photo and signature to exact specifications for Indian competitive exams like UPSC, BPSC, BSSC, NEET, JEE, SSC, Railway.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "featureList": ["Photo resize", "Signature resize", "Age eligibility calculator", "Document checklist", "Exam fee calculator"],
+      "inLanguage": "en-IN",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Students preparing for competitive exams in India"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://examready-bice.vercel.app/#org",
+      "name": "ExamReady",
+      "url": "https://examready-bice.vercel.app/",
+      "description": "Free exam tools for Indian competitive exam aspirants",
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "knowsAbout": ["UPSC", "BPSC", "BSSC", "NEET", "JEE", "SSC", "Railway exams", "Bihar competitive exams"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the photo size for BPSC exam?",
+          "acceptedAnswer": { "@type": "Answer", "text": "BPSC requires a passport photo of 213x284 pixels, JPG format, between 10KB and 200KB with white background." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the photo size for UPSC Civil Services exam?",
+          "acceptedAnswer": { "@type": "Answer", "text": "UPSC CSE requires a passport photo of 200x230 pixels, JPG format, between 20KB and 300KB with white background. Signature should be 200x80 pixels." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the photo size for BSSC exam?",
+          "acceptedAnswer": { "@type": "Answer", "text": "BSSC requires a passport photo of 150x200 pixels, JPG format, between 10KB and 100KB with white background." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the photo size for NEET exam?",
+          "acceptedAnswer": { "@type": "Answer", "text": "NEET UG requires a passport photo of 200x230 pixels, JPG format, between 10KB and 200KB with white background." }
+        },
+        {
+          "@type": "Question",
+          "name": "How to resize photo for SSC CGL exam?",
+          "acceptedAnswer": { "@type": "Answer", "text": "SSC CGL requires a photo of 100x120 pixels, JPG format, between 20KB and 50KB. Use ExamReady to resize it automatically for free." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink:#0f1923;--ink-2:#3a4a58;--ink-3:#7a8fa0;--ink-4:#b8c8d4;
+  --surface:#ffffff;--surface-2:#f4f7fa;--surface-3:#e8eff5;
+  --accent:#1a56db;--accent-light:#e8effd;--accent-text:#1240b0;
+  --success:#0e7c4a;--success-bg:#e6f5ee;
+  --warn:#b45309;--warn-bg:#fef3e2;
+  --danger:#c02222;--danger-bg:#fdeaea;
+  --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;
+  --shadow-sm:0 1px 3px rgba(15,25,35,.07),0 1px 2px rgba(15,25,35,.04);
+  --shadow-md:0 4px 16px rgba(15,25,35,.08),0 2px 6px rgba(15,25,35,.05);
+  --shadow-lg:0 12px 40px rgba(15,25,35,.10),0 4px 12px rgba(15,25,35,.06);
+  --font-display:'Sora',sans-serif;--font-body:'Inter',sans-serif;
+  --transition:0.18s cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--surface-2);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{background:var(--surface);border-bottom:1px solid var(--surface-3);position:sticky;top:0;z-index:100;padding:0 1rem}
+.nav-inner{max-width:860px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}
+.logo-icon{width:34px;height:34px;background:var(--accent);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:18px;height:18px;fill:white}
+.logo-name{font-family:var(--font-display);font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.3px}
+.logo-name span{color:var(--accent)}
+.nav-tag{font-size:11px;background:var(--accent-light);color:var(--accent-text);padding:3px 8px;border-radius:20px;font-weight:500}
+
+/* PAGE TABS */
+.page-tabs{background:var(--surface);border-bottom:1px solid var(--surface-3);padding:0 1rem;overflow-x:auto;white-space:nowrap}
+.page-tabs-inner{max-width:860px;margin:0 auto;display:flex;gap:0}
+.ptab{padding:12px 18px;font-size:13px;font-weight:500;color:var(--ink-3);cursor:pointer;border-bottom:2.5px solid transparent;transition:all var(--transition);white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--font-body)}
+.ptab:hover{color:var(--ink)}
+.ptab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.ptab svg{width:14px;height:14px;vertical-align:-2px;margin-right:5px;stroke:currentColor;fill:none}
+
+/* HERO */
+.hero{background:var(--surface);border-bottom:1px solid var(--surface-3);padding:2.5rem 1rem 2rem;text-align:center}
+.hero-inner{max-width:560px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--accent-text);background:var(--accent-light);padding:5px 12px;border-radius:20px;margin-bottom:1rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(22px,5vw,34px);font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.15;margin-bottom:.75rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:440px;margin:0 auto 1.5rem}
+.stats-row{display:flex;justify-content:center;gap:2rem;margin-top:1.25rem;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--ink)}
+.stat-lbl{font-size:11px;color:var(--ink-3);margin-top:2px}
+
+/* MAIN */
+.main{max-width:860px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.page{display:none}.page.active{display:block}
+
+/* SEARCH */
+.search-label{font-size:13px;font-weight:500;color:var(--ink-2);margin-bottom:8px;display:block}
+.search-wrap{position:relative}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--ink-3);fill:none;pointer-events:none}
+#searchInput{width:100%;padding:13px 16px 13px 44px;font-size:15px;font-family:var(--font-body);border:1.5px solid var(--surface-3);border-radius:var(--radius-lg);background:var(--surface);color:var(--ink);outline:none;transition:border-color var(--transition),box-shadow var(--transition);box-shadow:var(--shadow-sm)}
+#searchInput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,86,219,.12)}
+#searchInput::placeholder{color:var(--ink-4)}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--surface);border:1.5px solid var(--surface-3);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);z-index:200;overflow:hidden;display:none;max-height:320px;overflow-y:auto}
+.dropdown.open{display:block;animation:dropIn .15s ease}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.dd-category{padding:8px 14px 4px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+.dd-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;font-size:14px;color:var(--ink);border-bottom:1px solid var(--surface-2);transition:background var(--transition)}
+.dd-item:hover{background:var(--accent-light)}
+.dd-badge{font-size:10px;font-weight:600;background:var(--surface-3);color:var(--ink-2);padding:2px 7px;border-radius:20px;flex-shrink:0}
+.chips-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{padding:6px 14px;background:var(--surface);border:1.5px solid var(--surface-3);border-radius:20px;font-size:12px;font-weight:500;color:var(--ink-2);cursor:pointer;transition:all var(--transition);box-shadow:var(--shadow-sm)}
+.chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+
+/* CARDS */
+.card{background:var(--surface);border-radius:var(--radius-xl);border:1px solid var(--surface-3);box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:1rem}
+.card-header{padding:1.25rem 1.25rem 1rem;border-bottom:1px solid var(--surface-2);display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.card-body{padding:1.25rem}
+.section-label{font-size:12px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+
+/* EXAM CARD */
+.exam-badge-big{padding:6px 12px;background:var(--accent);color:white;font-size:12px;font-weight:700;border-radius:var(--radius-sm);letter-spacing:.04em;flex-shrink:0}
+.exam-info{flex:1;min-width:0}
+.exam-name-big{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--ink);line-height:1.3}
+.exam-category{font-size:12px;color:var(--ink-3);margin-top:2px}
+.change-exam-btn{flex-shrink:0;padding:6px 12px;background:transparent;border:1px solid var(--surface-3);border-radius:var(--radius-sm);font-size:12px;color:var(--ink-2);cursor:pointer;font-family:var(--font-body);transition:all var(--transition)}
+.change-exam-btn:hover{border-color:var(--ink-3)}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.spec-box{background:var(--surface-2);border-radius:var(--radius-md);padding:1rem}
+.spec-type{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.spec-type svg{width:14px;height:14px;stroke:currentColor;fill:none}
+.spec-dims{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.spec-details{font-size:11px;color:var(--ink-3);line-height:1.5}
+.official-note{display:flex;align-items:center;gap:8px;background:var(--warn-bg);border-radius:var(--radius-md);padding:10px 12px;font-size:12px;color:var(--warn);margin-top:2px}
+.official-note svg{width:14px;height:14px;stroke:currentColor;fill:none;flex-shrink:0}
+.official-note a{color:var(--warn);font-weight:600}
+
+/* BG PICKER */
+.bg-picker{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.bg-option{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer}
+.bg-swatch{width:36px;height:36px;border-radius:50%;border:2.5px solid transparent;transition:border-color var(--transition),transform var(--transition);position:relative}
+.bg-swatch.selected{border-color:var(--accent);transform:scale(1.1)}
+.bg-swatch::after{content:'';position:absolute;inset:2px;border-radius:50%;border:1px solid rgba(0,0,0,.1)}
+.bg-name{font-size:10px;color:var(--ink-3);font-weight:500}
+
+/* UPLOAD */
+.upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.upload-zone{border:2px dashed var(--surface-3);border-radius:var(--radius-lg);padding:1.5rem 1rem;text-align:center;cursor:pointer;transition:all var(--transition);position:relative;background:var(--surface-2);min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent);background:var(--accent-light)}
+.upload-zone.has-file{border-color:var(--success);background:var(--success-bg);border-style:solid}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-zone-icon{width:40px;height:40px;background:var(--surface);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:var(--shadow-sm)}
+.upload-zone-icon svg{width:20px;height:20px;stroke:var(--ink-3);fill:none}
+.upload-zone.has-file .upload-zone-icon{background:var(--success)}
+.upload-zone.has-file .upload-zone-icon svg{stroke:white}
+.upload-zone-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.upload-zone-sub{font-size:11px;color:var(--ink-3)}
+.upload-zone.has-file .upload-zone-title{color:var(--success)}
+
+/* RESULTS */
+.result-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.result-card{background:var(--surface);border-radius:var(--radius-lg);border:1px solid var(--surface-3);overflow:hidden;box-shadow:var(--shadow-sm)}
+.result-card-header{padding:10px 14px;background:var(--surface-2);font-size:12px;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.result-card-header svg{width:14px;height:14px;stroke:currentColor;fill:none}
+.result-preview{padding:12px;display:flex;align-items:center;justify-content:center;background:repeating-conic-gradient(#e8eff5 0% 25%,transparent 0% 50%) 0 0/12px 12px;min-height:110px}
+.result-preview img{max-width:100%;max-height:130px;border-radius:4px;display:block;box-shadow:var(--shadow-md)}
+.result-checks{padding:10px 14px;border-top:1px solid var(--surface-2)}
+.check-row{display:flex;align-items:center;gap:7px;font-size:12px;padding:3px 0;color:var(--ink-2)}
+.check-row svg{width:14px;height:14px;flex-shrink:0;fill:none}
+.check-row.pass{color:var(--success)}.check-row.pass svg{stroke:var(--success)}
+.check-row.fail{color:var(--danger)}.check-row.fail svg{stroke:var(--danger)}
+.result-actions{padding:10px 14px;border-top:1px solid var(--surface-2)}
+.btn-download{width:100%;padding:9px;background:var(--ink);color:white;border:none;border-radius:var(--radius-md);font-size:13px;font-weight:600;font-family:var(--font-body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all var(--transition)}
+.btn-download:hover{background:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-download svg{width:15px;height:15px;stroke:white;fill:none}
+.btn-zip{width:100%;padding:13px;background:var(--surface);color:var(--ink);border:1.5px solid var(--surface-3);border-radius:var(--radius-lg);font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all var(--transition);box-shadow:var(--shadow-sm)}
+.btn-zip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-zip svg{width:16px;height:16px;stroke:currentColor;fill:none}
+.privacy-banner{display:flex;align-items:center;gap:10px;background:var(--success-bg);border-radius:var(--radius-md);padding:10px 14px;font-size:12px;color:var(--success);margin-top:12px}
+.privacy-banner svg{width:15px;height:15px;stroke:var(--success);fill:none;flex-shrink:0}
+.section-divider{display:flex;align-items:center;gap:10px;margin:.5rem 0}
+.section-divider hr{flex:1;border:none;border-top:1px solid var(--surface-3)}
+.section-divider span{font-size:11px;color:var(--ink-4);font-weight:500}
+.thumb-upload-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.thumb-zone{border:2px dashed var(--surface-3);border-radius:var(--radius-md);padding:1rem .5rem;text-align:center;cursor:pointer;position:relative;background:var(--surface-2);transition:all var(--transition);min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.thumb-zone:hover{border-color:var(--accent);background:var(--accent-light)}
+.thumb-zone.has-file{border-color:var(--success);background:var(--success-bg);border-style:solid}
+.thumb-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.thumb-zone svg{width:22px;height:22px;stroke:var(--ink-3);fill:none}
+.thumb-zone.has-file svg{stroke:var(--success)}
+.thumb-label{font-size:11px;font-weight:600;color:var(--ink-2);margin-top:4px}
+.thumb-sub{font-size:10px;color:var(--ink-3)}
+.empty-state{text-align:center;padding:3rem 1rem;background:var(--surface);border-radius:var(--radius-xl);border:1.5px dashed var(--surface-3)}
+.empty-icon{width:64px;height:64px;background:var(--accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.empty-icon svg{width:28px;height:28px;stroke:var(--accent);fill:none}
+.empty-state h3{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.empty-state p{font-size:14px;color:var(--ink-3);line-height:1.5}
+
+/* ===== TOOL PAGES ===== */
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.tool-card{background:var(--surface);border-radius:var(--radius-xl);border:1px solid var(--surface-3);padding:1.5rem;box-shadow:var(--shadow-sm)}
+.tool-icon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.tool-icon svg{width:22px;height:22px;fill:none}
+.tool-title{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.tool-desc{font-size:13px;color:var(--ink-3);line-height:1.5;margin-bottom:1rem}
+
+/* FORM ELEMENTS */
+.form-group{margin-bottom:1rem}
+.form-label{display:block;font-size:13px;font-weight:500;color:var(--ink-2);margin-bottom:6px}
+.form-input,.form-select{width:100%;padding:10px 14px;font-size:14px;font-family:var(--font-body);border:1.5px solid var(--surface-3);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);outline:none;transition:border-color var(--transition)}
+.form-input:focus,.form-select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.btn-primary{padding:11px 20px;background:var(--accent);color:white;border:none;border-radius:var(--radius-md);font-size:14px;font-weight:600;font-family:var(--font-body);cursor:pointer;transition:all var(--transition);display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--accent-text);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-primary svg{width:16px;height:16px;stroke:white;fill:none}
+.result-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.25rem;margin-top:1rem;border:1px solid var(--surface-3)}
+.result-box.success{background:var(--success-bg);border-color:#9de8c0}
+.result-box.danger{background:var(--danger-bg);border-color:#f5b8b8}
+.result-box h4{font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:.5rem}
+.result-box.success h4{color:var(--success)}
+.result-box.danger h4{color:var(--danger)}
+.result-box p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.result-box ul{font-size:13px;color:var(--ink-2);padding-left:1.2rem;line-height:2}
+
+/* EXAM TABLE */
+.exam-table{width:100%;border-collapse:collapse;font-size:13px}
+.exam-table th{text-align:left;padding:10px 12px;font-size:11px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--surface-3);background:var(--surface-2)}
+.exam-table td{padding:12px;border-bottom:1px solid var(--surface-2);color:var(--ink-2);vertical-align:top}
+.exam-table tr:last-child td{border-bottom:none}
+.exam-table tr:hover td{background:var(--surface-2)}
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.tag-blue{background:var(--accent-light);color:var(--accent-text)}
+.tag-green{background:var(--success-bg);color:var(--success)}
+.tag-orange{background:var(--warn-bg);color:var(--warn)}
+
+/* FAQ SECTION */
+.faq-item{border-bottom:1px solid var(--surface-3);padding:1rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q svg{width:16px;height:16px;stroke:var(--ink-3);fill:none;flex-shrink:0;transition:transform var(--transition)}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{font-size:13px;color:var(--ink-2);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:200px;padding-top:.75rem}
+
+/* NOTIFICATION BADGE */
+.notif-row{display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid var(--surface-2)}
+.notif-row:last-child{border-bottom:none}
+.notif-icon{width:36px;height:36px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.notif-icon svg{width:18px;height:18px;fill:none}
+.notif-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.notif-meta{font-size:12px;color:var(--ink-3)}
+.notif-badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;margin-left:6px}
+
+/* FOOTER */
+.footer{background:var(--surface);border-top:1px solid var(--surface-3);padding:2rem 1rem 1.5rem;margin-top:2rem}
+.footer-inner{max-width:860px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:1.5rem}
+.footer-brand p{font-size:13px;color:var(--ink-3);line-height:1.6;margin-top:.5rem;max-width:300px}
+.footer-col h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:.75rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:6px}
+.footer-col ul li a{font-size:13px;color:var(--ink-3);text-decoration:none;transition:color var(--transition)}
+.footer-col ul li a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--surface-3);padding-top:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.footer-bottom p{font-size:12px;color:var(--ink-4)}
+.footer-keywords{font-size:11px;color:var(--ink-4);margin-top:.5rem;line-height:1.8}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:white;padding:11px 20px;border-radius:var(--radius-lg);font-size:13px;font-weight:500;z-index:999;box-shadow:var(--shadow-lg);transition:transform .25s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast svg{width:15px;height:15px;stroke:#4ade80;fill:none}
+
+/* MOBILE */
+@media(max-width:600px){
+  .tool-grid{grid-template-columns:1fr}
+  .spec-grid{grid-template-columns:1fr 1fr}
+  .upload-grid{grid-template-columns:1fr 1fr}
+  .result-pair{grid-template-columns:1fr 1fr}
+  .thumb-upload-row{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .main{padding:1rem .75rem 3rem}
+  .ptab{padding:10px 12px;font-size:12px}
+}
+@media(max-width:380px){
+  .spec-grid{grid-template-columns:1fr}
+  .upload-grid{grid-template-columns:1fr}
+  .result-pair{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('converter')" role="button" tabindex="0" aria-label="ExamReady home">
+      <div class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+      </div>
+      <span class="logo-name">Exam<span>Ready</span></span>
+    </div>
+    <span class="nav-tag">Free · Private · Instant</span>
+  </div>
+</nav>
+
+<div class="page-tabs" role="tablist" aria-label="Tools">
+  <div class="page-tabs-inner">
+    <button class="ptab active" onclick="showPage('converter')" role="tab" aria-selected="true" data-page="converter">
+      <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>Photo Converter
+    </button>
+    <button class="ptab" onclick="showPage('age')" role="tab" aria-selected="false" data-page="age">
+      <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Age Calculator
+    </button>
+    <button class="ptab" onclick="showPage('fees')" role="tab" aria-selected="false" data-page="fees">
+      <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Exam Fees
+    </button>
+    <button class="ptab" onclick="showPage('checklist')" role="tab" aria-selected="false" data-page="checklist">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Doc Checklist
+    </button>
+    <button class="ptab" onclick="showPage('notifications')" role="tab" aria-selected="false" data-page="notifications">
+      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>Notifications
+    </button>
+    <button class="ptab" onclick="showPage('faq')" role="tab" aria-selected="false" data-page="faq">
+      <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>FAQ
+    </button>
+  </div>
+</div>
+
+<header class="hero" id="heroSection">
+  <div class="hero-inner">
+    <div class="hero-eyebrow" aria-label="India exam photo tool">
+      <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:var(--accent)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      India's #1 free exam photo tool
+    </div>
+    <h1>Get your photo <em>exam-ready</em><br>in seconds</h1>
+    <p>Covers UPSC, BPSC, BSSC, Bihar Police, SSC, NEET, JEE, Railway & more. Resize photo and signature to exact specs — free, instant, private.</p>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">14+</div><div class="stat-lbl">Exams covered</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Free tools</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Private &amp; free</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="main" id="mainContent">
+
+  <!-- ===== PAGE: PHOTO CONVERTER ===== -->
+  <section class="page active" id="page-converter" aria-label="Photo and signature converter">
+    <div style="margin-bottom:1.5rem">
+      <label class="search-label" for="searchInput">Search your exam</label>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Try UPSC, BPSC, NEET, JEE, SSC, Railway..." autocomplete="off" spellcheck="false" aria-label="Search exam name" aria-autocomplete="list" aria-controls="dropdown">
+        <div class="dropdown" id="dropdown" role="listbox"></div>
+      </div>
+      <div class="chips-row" id="quickChips" aria-label="Popular exams"></div>
+    </div>
+    <div id="converterArea">
+      <div class="empty-state">
+        <div class="empty-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+        <h3>Select your exam to begin</h3>
+        <p>Search above or tap a quick-pick. We'll load the exact photo and signature specs for that exam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: AGE CALCULATOR ===== -->
+  <section class="page" id="page-age" aria-label="Age eligibility calculator">
+    <div class="card">
+      <div class="card-body">
+        <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--ink);margin-bottom:.25rem">Age Eligibility Calculator</h2>
+        <p style="font-size:13px;color:var(--ink-3);margin-bottom:1.5rem">Check if you are eligible for an exam based on your date of birth and category.</p>
+        <div class="form-group">
+          <label class="form-label" for="dobInput">Your date of birth</label>
+          <input type="date" id="dobInput" class="form-input" max="">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="examSelect">Select exam</label>
+          <select id="examSelect" class="form-select">
+            <option value="">-- Choose exam --</option>
+            <option value="upsc">UPSC Civil Services (IAS/IPS)</option>
+            <option value="bpsc">BPSC (Bihar PSC)</option>
+            <option value="ssc">SSC CGL</option>
+            <option value="ssc_chsl">SSC CHSL</option>
+            <option value="railway_ntpc">Railway NTPC</option>
+            <option value="railway_group_d">Railway Group D</option>
+            <option value="bihar_police_const">Bihar Police Constable</option>
+            <option value="bihar_police_si">Bihar Police SI</option>
+            <option value="bssc">BSSC Inter Level</option>
+            <option value="neet">NEET UG</option>
+            <option value="jee">JEE Main</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="categorySelect">Your category</label>
+          <select id="categorySelect" class="form-select">
+            <option value="general">General / EWS</option>
+            <option value="obc">OBC (Non-Creamy Layer)</option>
+            <option value="sc">SC (Scheduled Caste)</option>
+            <option value="st">ST (Scheduled Tribe)</option>
+            <option value="pwd">PwD (Persons with Disability)</option>
+            <option value="exsm">Ex-Serviceman</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cutoffDate">Cutoff date (leave blank to use today)</label>
+          <input type="date" id="cutoffDate" class="form-input">
+        </div>
+        <button class="btn-primary" onclick="calculateAge()">
+          <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          Check eligibility
+        </button>
+        <div id="ageResult"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Age limits by exam &amp; category (years)</div>
+        <div style="overflow-x:auto">
+        <table class="exam-table" aria-label="Age limits for competitive exams">
+          <thead>
+            <tr><th>Exam</th><th>General</th><th>OBC</th><th>SC/ST</th><th>PwD</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>UPSC CSE</strong></td><td>21–32</td><td>21–35</td><td>21–37</td><td>+10 yrs</td></tr>
+            <tr><td><strong>BPSC</strong></td><td>20–37</td><td>20–40</td><td>20–42</td><td>+10 yrs</td></tr>
+            <tr><td><strong>SSC CGL</strong></td><td>18–32</td><td>18–35</td><td>18–37</td><td>+10 yrs</td></tr>
+            <tr><td><strong>SSC CHSL</strong></td><td>18–27</td><td>18–30</td><td>18–32</td><td>+10 yrs</td></tr>
+            <tr><td><strong>Railway NTPC</strong></td><td>18–33</td><td>18–36</td><td>18–38</td><td>+10 yrs</td></tr>
+            <tr><td><strong>Railway Group D</strong></td><td>18–33</td><td>18–36</td><td>18–38</td><td>+10 yrs</td></tr>
+            <tr><td><strong>Bihar Police Constable</strong></td><td>18–25</td><td>18–27</td><td>18–27</td><td>+5 yrs</td></tr>
+            <tr><td><strong>Bihar Police SI</strong></td><td>20–37</td><td>20–40</td><td>20–42</td><td>+10 yrs</td></tr>
+            <tr><td><strong>BSSC Inter Level</strong></td><td>18–37</td><td>18–40</td><td>18–42</td><td>+10 yrs</td></tr>
+            <tr><td><strong>NEET UG</strong></td><td>17+ (no max)</td><td>17+</td><td>17+</td><td>17+</td></tr>
+            <tr><td><strong>JEE Main</strong></td><td>No age limit</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:11px;color:var(--ink-3);margin-top:10px">* Always verify current age limits in the official exam notification — limits may change.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: EXAM FEES ===== -->
+  <section class="page" id="page-fees" aria-label="Exam fee calculator">
+    <div class="card">
+      <div class="card-body">
+        <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--ink);margin-bottom:.25rem">Exam Fee Calculator</h2>
+        <p style="font-size:13px;color:var(--ink-3);margin-bottom:1.5rem">Find out exactly how much you need to pay for your exam form based on your category.</p>
+        <div class="form-group">
+          <label class="form-label" for="feeExamSelect">Select exam</label>
+          <select id="feeExamSelect" class="form-select" onchange="showFees()">
+            <option value="">-- Choose exam --</option>
+            <option value="upsc">UPSC Civil Services (IAS/IPS)</option>
+            <option value="bpsc">BPSC</option>
+            <option value="bssc">BSSC</option>
+            <option value="ssc_cgl">SSC CGL</option>
+            <option value="ssc_chsl">SSC CHSL</option>
+            <option value="railway_ntpc">Railway NTPC</option>
+            <option value="railway_gd">Railway Group D</option>
+            <option value="bihar_police">Bihar Police Constable</option>
+            <option value="ibps_po">IBPS PO</option>
+            <option value="ibps_clerk">IBPS Clerk</option>
+            <option value="sbi_po">SBI PO</option>
+            <option value="neet">NEET UG</option>
+            <option value="jee">JEE Main</option>
+          </select>
+        </div>
+        <div id="feesResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: DOCUMENT CHECKLIST ===== -->
+  <section class="page" id="page-checklist" aria-label="Document checklist">
+    <div class="card">
+      <div class="card-body">
+        <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--ink);margin-bottom:.25rem">Document Checklist</h2>
+        <p style="font-size:13px;color:var(--ink-3);margin-bottom:1.5rem">What to carry on exam day. Select your exam to get the complete list.</p>
+        <div class="form-group">
+          <label class="form-label" for="checklistExam">Select exam</label>
+          <select id="checklistExam" class="form-select" onchange="showChecklist()">
+            <option value="">-- Choose exam --</option>
+            <option value="upsc">UPSC Civil Services</option>
+            <option value="bpsc">BPSC</option>
+            <option value="bssc">BSSC</option>
+            <option value="ssc">SSC CGL / CHSL / MTS</option>
+            <option value="railway">Railway (NTPC / Group D)</option>
+            <option value="bihar_police">Bihar Police</option>
+            <option value="neet">NEET UG</option>
+            <option value="jee">JEE Main</option>
+            <option value="ibps">IBPS / SBI</option>
+          </select>
+        </div>
+        <div id="checklistResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: NOTIFICATIONS ===== -->
+  <section class="page" id="page-notifications" aria-label="Exam notifications">
+    <div class="card">
+      <div class="card-body">
+        <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--ink);margin-bottom:.25rem">Upcoming Exam Notifications</h2>
+        <p style="font-size:13px;color:var(--ink-3);margin-bottom:1.5rem">Key exams and their approximate notification windows. Always check official sites for exact dates.</p>
+        <div id="notifList"></div>
+        <p style="font-size:11px;color:var(--ink-3);margin-top:1rem">* Dates are approximate based on historical patterns. Verify at official websites before applying.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: FAQ ===== -->
+  <section class="page" id="page-faq" aria-label="Frequently asked questions">
+    <div class="card">
+      <div class="card-body">
+        <h2 style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--ink);margin-bottom:.25rem">Frequently Asked Questions</h2>
+        <p style="font-size:13px;color:var(--ink-3);margin-bottom:1.5rem">Common questions about exam photo sizes and document requirements.</p>
+        <div id="faqList"></div>
+      </div>
+    </div>
+    <!-- SEO keyword-rich content block -->
+    <div class="card">
+      <div class="card-body">
+        <h2 style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:1rem">Photo size requirements for all major Indian exams</h2>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.8;margin-bottom:.75rem">Every competitive exam in India — whether it is <strong>UPSC Civil Services, BPSC, BSSC, Bihar Police, SSC CGL, Railway NTPC, NEET, or JEE Main</strong> — has its own specific requirements for passport-size photograph and signature. Getting these wrong is one of the most common reasons for form rejection.</p>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.8;margin-bottom:.75rem">ExamReady is a free tool built specifically for students in <strong>Bihar and across India</strong> who are preparing for government job exams (sarkari naukri), medical and engineering entrance exams, and banking exams. You can resize, compress, and convert your photo and signature to exact exam specifications in seconds — without going to a cyber café.</p>
+        <p style="font-size:13px;color:var(--ink-2);line-height:1.8">Our database covers photo size for BPSC (213×284 px), UPSC (200×230 px), BSSC (150×200 px), SSC (100×120 px), NEET (200×230 px), JEE Main (200×230 px), Railway NTPC (130×150 px), IBPS PO (200×230 px), SBI PO (200×200 px), Bihar Police (213×284 px), and many more.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:.5rem">
+          <div class="logo-icon" style="width:28px;height:28px" aria-hidden="true">
+            <svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M20 6L9 17l-5-5"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </div>
+          <span class="logo-name" style="font-size:15px">Exam<span>Ready</span></span>
+        </div>
+        <p>Free exam tools for students preparing for UPSC, BPSC, BSSC, SSC, Railway, NEET, JEE, and banking exams across Bihar and India.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('converter')">Photo Converter</a></li>
+          <li><a href="#" onclick="showPage('age')">Age Calculator</a></li>
+          <li><a href="#" onclick="showPage('fees')">Exam Fees</a></li>
+          <li><a href="#" onclick="showPage('checklist')">Doc Checklist</a></li>
+          <li><a href="#" onclick="showPage('notifications')">Notifications</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Exams</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('converter');selectExam('upsc_cse')">UPSC Photo Size</a></li>
+          <li><a href="#" onclick="showPage('converter');selectExam('bpsc')">BPSC Photo Size</a></li>
+          <li><a href="#" onclick="showPage('converter');selectExam('bssc')">BSSC Photo Size</a></li>
+          <li><a href="#" onclick="showPage('converter');selectExam('neet')">NEET Photo Size</a></li>
+          <li><a href="#" onclick="showPage('converter');selectExam('ssc_cgl')">SSC Photo Size</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-keywords" aria-hidden="true">
+      BPSC photo size · UPSC passport photo · BSSC signature size · Bihar Police photo · SSC CGL photo format · NEET photo resize · JEE photo size · Railway NTPC photo · exam photo converter free · competitive exam photo Bihar · IBPS photo size · SBI PO signature
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ExamReady. Free for all students. Made with ❤️ in Bihar.</p>
+      <p>Your images never leave your device — 100% private.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="alert" aria-live="polite">
+  <svg viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastMsg">Done!</span>
+</div>
+
+<canvas id="workCanvas" style="display:none" aria-hidden="true"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+/* ===== DATA ===== */
+const EXAMS = {
+  upsc_cse:{name:"UPSC Civil Services (IAS / IPS / IFS)",category:"Central Govt",badge:"UPSC",photo:{w:200,h:230,minKB:20,maxKB:300,format:"JPG",bg:"White"},sig:{w:200,h:80,minKB:4,maxKB:30,format:"JPG"},official:"https://upsc.gov.in"},
+  upsc_capf:{name:"UPSC CAPF / CDS / NDA",category:"Central Govt",badge:"UPSC",photo:{w:200,h:230,minKB:20,maxKB:300,format:"JPG",bg:"White"},sig:{w:200,h:80,minKB:4,maxKB:30,format:"JPG"},official:"https://upsc.gov.in"},
+  ssc_cgl:{name:"SSC CGL / CHSL / MTS / GD",category:"Central Govt",badge:"SSC",photo:{w:100,h:120,minKB:20,maxKB:50,format:"JPG",bg:"White"},sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"},official:"https://ssc.nic.in"},
+  railway_ntpc:{name:"Railway NTPC / Group D / ALP",category:"Central Govt",badge:"RRB",photo:{w:130,h:150,minKB:20,maxKB:50,format:"JPG",bg:"White"},sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"},official:"https://rrbcdg.gov.in"},
+  bpsc:{name:"BPSC (Bihar Public Service Commission)",category:"Bihar State",badge:"BPSC",photo:{w:213,h:284,minKB:10,maxKB:200,format:"JPG",bg:"White"},sig:{w:213,h:71,minKB:4,maxKB:30,format:"JPG"},official:"https://bpsc.bih.nic.in"},
+  bssc:{name:"BSSC (Bihar Staff Selection Commission)",category:"Bihar State",badge:"BSSC",photo:{w:150,h:200,minKB:10,maxKB:100,format:"JPG",bg:"White"},sig:{w:150,h:50,minKB:4,maxKB:20,format:"JPG"},official:"https://bssc.bihar.gov.in"},
+  bihar_police:{name:"Bihar Police Constable / SI / ASI",category:"Bihar State",badge:"BPSSC",photo:{w:213,h:284,minKB:10,maxKB:100,format:"JPG",bg:"White"},sig:{w:213,h:71,minKB:4,maxKB:20,format:"JPG"},official:"https://csbc.bih.nic.in"},
+  neet:{name:"NEET UG (Medical Entrance)",category:"National / NTA",badge:"NEET",photo:{w:200,h:230,minKB:10,maxKB:200,format:"JPG",bg:"White"},sig:{w:160,h:60,minKB:4,maxKB:30,format:"JPG"},official:"https://neet.nta.nic.in"},
+  jee_main:{name:"JEE Main (Engineering Entrance)",category:"National / NTA",badge:"JEE",photo:{w:200,h:230,minKB:10,maxKB:200,format:"JPG",bg:"White"},sig:{w:160,h:60,minKB:4,maxKB:30,format:"JPG"},official:"https://jeemain.nta.nic.in"},
+  ibps_po:{name:"IBPS PO / Clerk / SO / RRB PO",category:"Banking",badge:"IBPS",photo:{w:200,h:230,minKB:20,maxKB:50,format:"JPG",bg:"White"},sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"},official:"https://ibps.in"},
+  sbi_po:{name:"SBI PO / Clerk / Junior Associate",category:"Banking",badge:"SBI",photo:{w:200,h:200,minKB:20,maxKB:50,format:"JPG",bg:"White"},sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"},official:"https://sbi.co.in/careers"},
+  cat:{name:"CAT / XAT / IIFT (MBA Entrance)",category:"National",badge:"CAT",photo:{w:144,h:192,minKB:10,maxKB:80,format:"JPG",bg:"White"},sig:{w:144,h:64,minKB:4,maxKB:30,format:"JPG"},official:"https://iimcat.ac.in"},
+  clat:{name:"CLAT / AILET (Law Entrance)",category:"National",badge:"CLAT",photo:{w:200,h:230,minKB:10,maxKB:100,format:"JPG",bg:"White"},sig:{w:140,h:60,minKB:4,maxKB:30,format:"JPG"},official:"https://consortiumofnlus.ac.in"},
+  up_police:{name:"UP Police Constable / SI",category:"UP State",badge:"UPPRPB",photo:{w:213,h:284,minKB:10,maxKB:100,format:"JPG",bg:"White"},sig:{w:213,h:71,minKB:4,maxKB:20,format:"JPG"},official:"https://uppbpb.gov.in"},
+};
+
+const BG_OPTIONS=[{name:"White",hex:"#ffffff"},{name:"Light Blue",hex:"#d4e8f5"},{name:"Sky Blue",hex:"#add8e6"},{name:"Original",hex:null}];
+const QUICK=["upsc_cse","bpsc","bssc","neet","jee_main","ssc_cgl","ibps_po","railway_ntpc","bihar_police","sbi_po"];
+
+const AGE_LIMITS={
+  upsc:{name:"UPSC Civil Services",general:[21,32],obc:[21,35],sc:[21,37],st:[21,37],pwd:[21,42],exsm:[21,37]},
+  bpsc:{name:"BPSC",general:[20,37],obc:[20,40],sc:[20,42],st:[20,42],pwd:[20,47],exsm:[20,42]},
+  ssc:{name:"SSC CGL",general:[18,32],obc:[18,35],sc:[18,37],st:[18,37],pwd:[18,42],exsm:[18,37]},
+  ssc_chsl:{name:"SSC CHSL",general:[18,27],obc:[18,30],sc:[18,32],st:[18,32],pwd:[18,37],exsm:[18,32]},
+  railway_ntpc:{name:"Railway NTPC",general:[18,33],obc:[18,36],sc:[18,38],st:[18,38],pwd:[18,43],exsm:[18,38]},
+  railway_group_d:{name:"Railway Group D",general:[18,33],obc:[18,36],sc:[18,38],st:[18,38],pwd:[18,43],exsm:[18,38]},
+  bihar_police_const:{name:"Bihar Police Constable",general:[18,25],obc:[18,27],sc:[18,27],st:[18,27],pwd:[18,30],exsm:[18,28]},
+  bihar_police_si:{name:"Bihar Police SI",general:[20,37],obc:[20,40],sc:[20,42],st:[20,42],pwd:[20,47],exsm:[20,42]},
+  bssc:{name:"BSSC Inter Level",general:[18,37],obc:[18,40],sc:[18,42],st:[18,42],pwd:[18,47],exsm:[18,42]},
+  neet:{name:"NEET UG",general:[17,null],obc:[17,null],sc:[17,null],st:[17,null],pwd:[17,null],exsm:[17,null]},
+  jee:{name:"JEE Main",general:[null,null],obc:[null,null],sc:[null,null],st:[null,null],pwd:[null,null],exsm:[null,null]},
+};
+
+const FEES={
+  upsc:{name:"UPSC Civil Services",general:100,obc:100,sc:0,st:0,pwd:0,exsm:0,note:"Fee paid via SBI Net Banking / Credit / Debit card"},
+  bpsc:{name:"BPSC",general:600,obc:600,sc:150,st:150,pwd:150,exsm:150,note:"Bihar domicile SC/ST pay reduced fee"},
+  bssc:{name:"BSSC",general:375,obc:375,sc:100,st:100,pwd:100,exsm:100,note:"Fee via online payment only"},
+  ssc_cgl:{name:"SSC CGL",general:100,obc:100,sc:0,st:0,pwd:0,exsm:0,note:"Women candidates are also exempt"},
+  ssc_chsl:{name:"SSC CHSL",general:100,obc:100,sc:0,st:0,pwd:0,exsm:0,note:"Women candidates are also exempt"},
+  railway_ntpc:{name:"Railway NTPC",general:500,obc:500,sc:250,st:250,pwd:250,exsm:250,note:"₹400 refunded after appearing in CBT 1"},
+  railway_gd:{name:"Railway Group D",general:500,obc:500,sc:250,st:250,pwd:250,exsm:250,note:"₹400 refunded after appearing in CBT"},
+  bihar_police:{name:"Bihar Police Constable",general:450,obc:450,sc:112,st:112,pwd:112,exsm:112,note:"Fee via online mode only"},
+  ibps_po:{name:"IBPS PO",general:850,obc:850,sc:175,st:175,pwd:175,exsm:175,note:"Includes postage / intimation charges"},
+  ibps_clerk:{name:"IBPS Clerk",general:850,obc:850,sc:175,st:175,pwd:175,exsm:175,note:""},
+  sbi_po:{name:"SBI PO",general:750,obc:750,sc:0,st:0,pwd:0,exsm:0,note:"SC/ST/PwD/Ex-SM exempt"},
+  neet:{name:"NEET UG",general:1700,obc:1600,sc:1000,st:1000,pwd:1000,exsm:1700,note:"Fee differs slightly every year"},
+  jee:{name:"JEE Main",general:1000,obc:1000,sc:500,st:500,pwd:500,exsm:1000,note:"Girls: ₹800 General / ₹400 SC/ST/PwD (approx)"},
+};
+
+const CHECKLISTS={
+  upsc:["Valid Admit Card (printed, black & white is fine)","Original photo ID (Aadhaar / Passport / Voter ID / PAN)","Passport-size photographs (4-6, same as form)","Blue/black ballpoint pen","Water bottle (transparent, no label)","No electronic devices allowed"],
+  bpsc:["Printed Admit Card","Original & photocopy of photo ID (Aadhaar preferred)","Passport-size photos (3-4)","Black ballpoint pen","Caste certificate (if applicable, for verification)","No mobile phones or smartwatches"],
+  bssc:["Printed Admit Card","Original Aadhaar Card or any government-issued photo ID","Passport-size photographs (2-4)","Blue/black ink pen","No electronic devices"],
+  ssc:["Admit Card (printed)","Original Photo ID (Aadhaar / Voter ID / Driving Licence)","Passport photographs (4)","Black/blue pen","Water (transparent bottle)","No calculator, mobile, or smartwatch"],
+  railway:["Admit Card / Call Letter (printed)","Original + photocopy of Photo ID (Aadhaar mandatory)","Passport photographs (2)","Pen","Aadhaar card is mandatory for Railway exams"],
+  bihar_police:["Admit Card printed","Aadhaar Card (original)","Domicile / Caste certificate (original + photocopy)","Passport photographs (4-6)","Physical fitness documents if called for PET","No electronic gadgets"],
+  neet:["Admit Card printed on A4 paper","Passport-size photo affixed on admit card (same as form)","Original Photo ID (Aadhaar / Passport)","PwD certificate if applicable","Transparent water bottle","No electronic devices. No smart watch.","Postcard-size photo (if required by centre)"],
+  jee:["Admit Card (printed)","Self-declaration form (COVID format if applicable)","Original Photo ID (Aadhaar / Passport)","Ballpoint pen (black/blue)","No mobile phone or electronic device allowed"],
+  ibps:["Call Letter / Admit Card (printed)","Original Photo ID","Passport photographs (2-4)","PwD certificate (if applicable)","No electronic devices"],
+};
+
+const NOTIFICATIONS=[
+  {exam:"BPSC 71st CCE",status:"Expected",window:"Oct–Nov 2025",category:"Bihar",color:"orange"},
+  {exam:"BSSC Inter Level",status:"Expected",window:"2025",category:"Bihar",color:"orange"},
+  {exam:"Bihar Police Constable",status:"Expected",window:"2025",category:"Bihar",color:"orange"},
+  {exam:"UPSC Civil Services 2025",status:"Active",window:"Notification out — Form closed",category:"Central",color:"green"},
+  {exam:"SSC CGL 2025",status:"Active",window:"Application ongoing",category:"Central",color:"green"},
+  {exam:"Railway NTPC 2025",status:"Active",window:"CBT 1 ongoing",category:"Central",color:"green"},
+  {exam:"IBPS PO 2025",status:"Expected",window:"Aug–Sep 2025",category:"Banking",color:"orange"},
+  {exam:"SBI Clerk 2025",status:"Expected",window:"Mid 2025",category:"Banking",color:"orange"},
+  {exam:"NEET UG 2026",status:"Expected",window:"Mar–Apr 2026",category:"Medical",color:"blue"},
+  {exam:"JEE Main 2026",status:"Expected",window:"Jan & Apr 2026",category:"Engineering",color:"blue"},
+];
+
+const FAQS=[
+  {q:"What is the correct photo size for BPSC exam?",a:"BPSC requires a passport photo of 213×284 pixels in JPG format, file size between 10KB and 200KB, with a white background. The signature should be 213×71 pixels, 4–30KB, JPG format."},
+  {q:"What is the photo size for UPSC Civil Services exam?",a:"UPSC CSE requires a 200×230 pixel passport photo in JPG format, between 20KB and 300KB, with white background. Signature dimensions are 200×80 pixels, 4–30KB."},
+  {q:"What is the photo size for BSSC exam?",a:"BSSC requires a 150×200 pixel photo in JPG format, file size 10KB to 100KB. Signature should be 150×50 pixels, 4–20KB, white background."},
+  {q:"What is the photo size for NEET exam?",a:"NEET UG requires a 200×230 pixel passport photo in JPG format, file size 10KB to 200KB, white background. Signature is 160×60 pixels, 4–30KB."},
+  {q:"What is the photo size for SSC CGL / CHSL exam?",a:"SSC requires a 100×120 pixel photo, JPG format, file size 20KB to 50KB. The signature should be 140×60 pixels, 10–20KB."},
+  {q:"What is the photo size for Railway NTPC exam?",a:"Railway NTPC requires a 130×150 pixel photo in JPG format, 20–50KB. Signature: 140×60 pixels, 10–20KB."},
+  {q:"My photo is getting rejected — what should I do?",a:"Most rejections happen because the file is too large, the dimensions are wrong, or the format is not JPG. Use ExamReady to automatically resize and compress your photo to the exact specs for your exam. Everything is done in your browser — private and instant."},
+  {q:"Can I use a PNG photo for exam forms?",a:"Most exam portals accept only JPG/JPEG format. ExamReady converts your photo to JPG automatically when you process it."},
+  {q:"Does ExamReady upload my photo to any server?",a:"No. All processing happens in your browser on your device. Your photo and signature are never sent to any server. This is completely private."},
+  {q:"What background colour is required for exam photos?",a:"Almost all exams in India require a plain white background. Some accept light blue. ExamReady lets you choose the background colour when processing your photo."},
+];
+
+/* ===== CONVERTER STATE ===== */
+let cvState={examKey:null,bgName:"White",photoFile:null,sigFile:null,thumbFile:null,photoResult:null,sigResult:null,thumbResult:null};
+
+/* ===== PAGE NAVIGATION ===== */
+function showPage(page){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".ptab").forEach(t=>{t.classList.remove("active");t.setAttribute("aria-selected","false")});
+  document.getElementById("page-"+page).classList.add("active");
+  const tab=document.querySelector(`[data-page="${page}"]`);
+  if(tab){tab.classList.add("active");tab.setAttribute("aria-selected","true")}
+  document.getElementById("heroSection").style.display=page==="converter"?"block":"none";
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(page==="notifications") renderNotifications();
+  if(page==="faq") renderFAQ();
+}
+
+/* ===== QUICK CHIPS ===== */
+document.getElementById("quickChips").innerHTML=QUICK.map(k=>`<button class="chip" onclick="selectExam('${k}')" aria-label="${EXAMS[k].name}">${EXAMS[k].badge}</button>`).join("");
+
+/* ===== SEARCH ===== */
+const searchInput=document.getElementById("searchInput");
+const dropdown=document.getElementById("dropdown");
+searchInput.addEventListener("input",e=>{
+  const q=e.target.value.trim().toLowerCase();
+  if(!q){dropdown.classList.remove("open");return}
+  const matches=Object.entries(EXAMS).filter(([k,v])=>v.name.toLowerCase().includes(q)||v.badge.toLowerCase().includes(q)||v.category.toLowerCase().includes(q));
+  if(!matches.length){dropdown.classList.remove("open");return}
+  const cats=[...new Set(matches.map(([k,v])=>v.category))];
+  dropdown.innerHTML=cats.map(cat=>`<div class="dd-category">${cat}</div>`+matches.filter(([k,v])=>v.category===cat).map(([k,v])=>`<div class="dd-item" onclick="selectExam('${k}')" role="option"><span class="dd-badge">${v.badge}</span>${v.name}</div>`).join("")).join("");
+  dropdown.classList.add("open");
+});
+document.addEventListener("click",e=>{if(!e.target.closest(".search-wrap"))dropdown.classList.remove("open")});
+
+/* ===== SELECT EXAM ===== */
+function selectExam(key){
+  cvState={...cvState,examKey:key,photoFile:null,sigFile:null,thumbFile:null,photoResult:null,sigResult:null,thumbResult:null};
+  searchInput.value=EXAMS[key].name;
+  dropdown.classList.remove("open");
+  showPage("converter");
+  renderConverterPanel();
+}
+
+function renderConverterPanel(){
+  const exam=EXAMS[cvState.examKey];
+  const p=exam.photo,s=exam.sig;
+  document.getElementById("converterArea").innerHTML=`
+  <div style="display:flex;flex-direction:column;gap:1rem">
+    <div class="card">
+      <div class="card-header">
+        <span class="exam-badge-big">${exam.badge}</span>
+        <div class="exam-info"><div class="exam-name-big">${exam.name}</div><div class="exam-category">${exam.category}</div></div>
+        <button class="change-exam-btn" onclick="resetConverter()">Change exam</button>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Required specifications</div>
+        <div class="spec-grid">
+          <div class="spec-box">
+            <div class="spec-type"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> Passport Photo</div>
+            <div class="spec-dims">${p.w} × ${p.h} px</div>
+            <div class="spec-details">${p.minKB}–${p.maxKB} KB · ${p.format} · ${p.bg} bg</div>
+          </div>
+          <div class="spec-box">
+            <div class="spec-type"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Signature</div>
+            <div class="spec-dims">${s.w} × ${s.h} px</div>
+            <div class="spec-details">${s.minKB}–${s.maxKB} KB · ${s.format} · White bg</div>
+          </div>
+        </div>
+        <div class="official-note"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg> Always verify at <a href="${exam.official}" target="_blank" rel="noopener noreferrer">${exam.official}</a></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Photo background colour</div>
+        <div class="bg-picker" id="bgPicker">
+          ${BG_OPTIONS.map(opt=>`<div class="bg-option" onclick="selectBg('${opt.name}')"><div class="bg-swatch${cvState.bgName===opt.name?" selected":""}" style="background:${opt.hex?opt.hex:"linear-gradient(135deg,#ccc 25%,#fff 25%,#fff 50%,#ccc 50%,#ccc 75%,#fff 75%) 0 0/10px 10px"}"></div><span class="bg-name">${opt.name}</span></div>`).join("")}
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Upload your files</div>
+        <div class="upload-grid">
+          <div class="upload-zone${cvState.photoFile?" has-file":""}" onclick="document.getElementById('photoInput').click()">
+            <input type="file" id="photoInput" accept="image/*" onchange="handleUpload('photo',this)" aria-label="Upload passport photo">
+            <div class="upload-zone-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="upload-zone-title">${cvState.photoFile?"Photo uploaded ✓":"Passport photo"}</div>
+            <div class="upload-zone-sub">${cvState.photoFile?"Tap to replace":"Tap to upload · JPG or PNG"}</div>
+          </div>
+          <div class="upload-zone${cvState.sigFile?" has-file":""}" onclick="document.getElementById('sigInput').click()">
+            <input type="file" id="sigInput" accept="image/*" onchange="handleUpload('sig',this)" aria-label="Upload signature">
+            <div class="upload-zone-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+            <div class="upload-zone-title">${cvState.sigFile?"Signature uploaded ✓":"Signature"}</div>
+            <div class="upload-zone-sub">${cvState.sigFile?"Tap to replace":"Tap to upload · JPG or PNG"}</div>
+          </div>
+        </div>
+        <div class="section-divider" style="margin:1rem 0 .75rem"><hr><span>optional</span><hr></div>
+        <div class="section-label">Thumb impression (if required by your exam)</div>
+        <div class="thumb-upload-row">
+          <div class="thumb-zone${cvState.thumbFile?" has-file":""}" onclick="document.getElementById('thumbInput').click()">
+            <input type="file" id="thumbInput" accept="image/*" onchange="handleUpload('thumb',this)" aria-label="Upload thumb impression">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+            <div class="thumb-label">${cvState.thumbFile?"✓ Uploaded":"Thumb print"}</div>
+            <div class="thumb-sub">optional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="resultsArea"></div>
+  </div>`;
+  if(cvState.photoResult||cvState.sigResult)renderResults();
+}
+
+function resetConverter(){
+  cvState={examKey:null,bgName:"White",photoFile:null,sigFile:null,thumbFile:null,photoResult:null,sigResult:null,thumbResult:null};
+  searchInput.value="";
+  document.getElementById("converterArea").innerHTML=`<div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div><h3>Select your exam to begin</h3><p>Search above or tap a quick-pick to load exam-specific specs.</p></div>`;
+}
+
+function selectBg(name){
+  cvState.bgName=name;
+  document.querySelectorAll(".bg-swatch").forEach((el,i)=>el.classList.toggle("selected",BG_OPTIONS[i].name===name));
+  if(cvState.photoFile)processFile("photo",cvState.photoFile);
+}
+
+function handleUpload(type,input){
+  const file=input.files[0]; if(!file)return;
+  if(type==="photo")cvState.photoFile=file;
+  else if(type==="sig")cvState.sigFile=file;
+  else cvState.thumbFile=file;
+  renderConverterPanel();
+  processFile(type,file);
+}
+
+function processFile(type,file){
+  const exam=EXAMS[cvState.examKey];
+  const spec=type==="photo"?exam.photo:type==="sig"?exam.sig:{w:200,h:80,minKB:4,maxKB:30};
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.getElementById("workCanvas");
+      canvas.width=spec.w;canvas.height=spec.h;
+      const ctx=canvas.getContext("2d");
+      const bgOpt=BG_OPTIONS.find(o=>o.name===cvState.bgName);
+      ctx.fillStyle=(type==="photo"&&bgOpt&&bgOpt.hex)?bgOpt.hex:"#ffffff";
+      ctx.fillRect(0,0,spec.w,spec.h);
+      const scale=Math.min(spec.w/img.width,spec.h/img.height);
+      const sw=img.width*scale,sh=img.height*scale;
+      ctx.drawImage(img,(spec.w-sw)/2,(spec.h-sh)/2,sw,sh);
+      let quality=0.94,dataUrl,kb;
+      do{dataUrl=canvas.toDataURL("image/jpeg",quality);kb=Math.round(dataUrl.length*.75/1024);quality-=0.05}while(kb>spec.maxKB&&quality>0.2);
+      const result={dataUrl,kb,w:spec.w,h:spec.h,spec};
+      if(type==="photo")cvState.photoResult=result;
+      else if(type==="sig")cvState.sigResult=result;
+      else cvState.thumbResult=result;
+      renderResults();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderResults(){
+  const exam=EXAMS[cvState.examKey];
+  const area=document.getElementById("resultsArea");
+  if(!area)return;
+  if(!cvState.photoResult&&!cvState.sigResult&&!cvState.thumbResult){area.innerHTML="";return}
+  const ok='<svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
+  const fail='<svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>';
+  function rCard(result,label,specObj){
+    if(!result)return"";
+    const okKB=result.kb>=specObj.minKB&&result.kb<=specObj.maxKB;
+    return`<div class="result-card">
+      <div class="result-card-header"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>${label}</div>
+      <div class="result-preview"><img src="${result.dataUrl}" alt="${label} preview"></div>
+      <div class="result-checks">
+        <div class="check-row pass">${ok} ${result.w}×${result.h} px ✓</div>
+        <div class="check-row ${okKB?"pass":"fail"}">${okKB?ok:fail} ${result.kb} KB ${okKB?"✓":"— recompressing"}</div>
+        <div class="check-row pass">${ok} JPG format ✓</div>
+      </div>
+      <div class="result-actions"><button class="btn-download" onclick="dlSingle('${label.toLowerCase().replace(/\s+/g,'_')}',cvState.${label.toLowerCase().replace(/\s+/g,'')+'Result'})"><svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download ${label}</button></div>
+    </div>`;
+  }
+  const total=[cvState.photoResult,cvState.sigResult,cvState.thumbResult].filter(Boolean).length;
+  area.innerHTML=`<div class="card"><div class="card-body">
+    <div class="section-label">Processed — ready to download</div>
+    <div class="result-pair">${rCard(cvState.photoResult,"Photo",exam.photo)}${rCard(cvState.sigResult,"Signature",exam.sig)}</div>
+    ${cvState.thumbResult?`<div class="result-pair">${rCard(cvState.thumbResult,"Thumb",{minKB:4,maxKB:30})}</div>`:""}
+    ${total>=2?`<button class="btn-zip" onclick="dlZip()"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download all as ZIP — ${exam.badge} exam pack</button>`:""}
+    <div class="privacy-banner"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>All processing in your browser — images never uploaded to any server</div>
+  </div></div>`;
+}
+
+function dlSingle(label,result){
+  if(!result)result=label==="photo"?cvState.photoResult:label==="signature"?cvState.sigResult:cvState.thumbResult;
+  const name=EXAMS[cvState.examKey].badge.toLowerCase().replace(/[^a-z0-9]/g,"_");
+  const a=document.createElement("a");a.href=result.dataUrl;a.download=`${name}_${label}.jpg`;a.click();
+  showToast(`${label.charAt(0).toUpperCase()+label.slice(1)} downloaded!`);
+}
+
+async function dlZip(){
+  const exam=EXAMS[cvState.examKey];
+  const name=exam.badge.toLowerCase().replace(/[^a-z0-9]/g,"_");
+  const zip=new JSZip();
+  const pairs=[[cvState.photoResult,`${name}_photo.jpg`],[cvState.sigResult,`${name}_signature.jpg`],[cvState.thumbResult,`${name}_thumb.jpg`]].filter(([r])=>r);
+  for(const[result,fname]of pairs){const res=await fetch(result.dataUrl);zip.file(fname,await res.blob())}
+  const blob=await zip.generateAsync({type:"blob"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=`${name}_exam_pack.zip`;a.click();
+  URL.revokeObjectURL(url);
+  showToast("Exam pack downloaded!");
+}
+
+/* ===== AGE CALCULATOR ===== */
+function calculateAge(){
+  const dob=document.getElementById("dobInput").value;
+  const examKey=document.getElementById("examSelect").value;
+  const category=document.getElementById("categorySelect").value;
+  const cutoffVal=document.getElementById("cutoffDate").value;
+  if(!dob||!examKey||!category){showToast("Please fill all fields");return}
+  const birthDate=new Date(dob);
+  const cutoff=cutoffVal?new Date(cutoffVal):new Date();
+  let age=cutoff.getFullYear()-birthDate.getFullYear();
+  const m=cutoff.getMonth()-birthDate.getMonth();
+  if(m<0||(m===0&&cutoff.getDate()<birthDate.getDate()))age--;
+  const limits=AGE_LIMITS[examKey];
+  if(!limits){document.getElementById("ageResult").innerHTML=`<div class="result-box"><p>Exam data not found.</p></div>`;return}
+  const[minAge,maxAge]=limits[category]||limits.general;
+  const eligible=(!minAge||age>=minAge)&&(!maxAge||age<=maxAge);
+  const remaining=maxAge?maxAge-age:null;
+  document.getElementById("ageResult").innerHTML=`<div class="result-box ${eligible?"success":"danger"}">
+    <h4>${eligible?"✅ You are eligible!":"❌ Not eligible"}</h4>
+    <p>Your age as of ${cutoff.toLocaleDateString("en-IN")}: <strong>${age} years</strong></p>
+    <p>Age limit for ${limits.name} (${category.toUpperCase()}): <strong>${minAge||"No minimum"}–${maxAge?"<strong>"+maxAge+" years</strong>":"No maximum"}</strong></p>
+    ${eligible&&remaining!==null?`<p>You have <strong>${remaining} year${remaining!==1?"s":""}</strong> remaining before you exceed the age limit.</p>`:""}
+    ${!eligible&&maxAge&&age>maxAge?`<p>You exceeded the upper age limit by <strong>${age-maxAge} year${age-maxAge!==1?"s":""}</strong>.</p>`:""}
+    ${!eligible&&minAge&&age<minAge?`<p>You need <strong>${minAge-age} more year${minAge-age!==1?"s":""}</strong> to meet the minimum age.</p>`:""}
+    <p style="margin-top:.5rem;font-size:11px;opacity:.7">Always verify with official notification before applying.</p>
+  </div>`;
+}
+
+/* ===== EXAM FEES ===== */
+function showFees(){
+  const key=document.getElementById("feeExamSelect").value;
+  if(!key){document.getElementById("feesResult").innerHTML="";return}
+  const f=FEES[key];
+  if(!f){document.getElementById("feesResult").innerHTML="";return}
+  document.getElementById("feesResult").innerHTML=`<div class="result-box" style="margin-top:1rem">
+    <h4 style="color:var(--ink)">${f.name} — Application Fee</h4>
+    <ul style="margin-top:.5rem">
+      <li><strong>General / EWS:</strong> ₹${f.general}</li>
+      <li><strong>OBC (NCL):</strong> ₹${f.obc}</li>
+      <li><strong>SC:</strong> ₹${f.sc===0?"Exempt":f.sc}</li>
+      <li><strong>ST:</strong> ₹${f.st===0?"Exempt":f.st}</li>
+      <li><strong>PwD:</strong> ₹${f.pwd===0?"Exempt":f.pwd}</li>
+      <li><strong>Ex-Serviceman:</strong> ₹${f.exsm===0?"Exempt":f.exsm}</li>
+    </ul>
+    ${f.note?`<p style="margin-top:.75rem;font-size:12px;color:var(--ink-3)">ℹ️ ${f.note}</p>`:""}
+    <p style="margin-top:.5rem;font-size:11px;opacity:.7">Verify exact fee in official notification — fees may change each cycle.</p>
+  </div>`;
+}
+
+/* ===== CHECKLIST ===== */
+function showChecklist(){
+  const key=document.getElementById("checklistExam").value;
+  if(!key){document.getElementById("checklistResult").innerHTML="";return}
+  const items=CHECKLISTS[key];
+  if(!items){document.getElementById("checklistResult").innerHTML="";return}
+  document.getElementById("checklistResult").innerHTML=`<div class="result-box" style="margin-top:1rem">
+    <h4 style="color:var(--ink);margin-bottom:.75rem">Documents to carry on exam day</h4>
+    <ul>${items.map(i=>`<li style="padding:4px 0;font-size:13px;color:var(--ink-2)">${i}</li>`).join("")}</ul>
+    <p style="margin-top:.75rem;font-size:11px;opacity:.7">Keep original + 2 photocopies of each document. Read admit card instructions carefully.</p>
+  </div>`;
+}
+
+/* ===== NOTIFICATIONS ===== */
+function renderNotifications(){
+  const catColors={Bihar:"orange",Central:"blue",Banking:"green",Medical:"blue",Engineering:"blue"};
+  document.getElementById("notifList").innerHTML=NOTIFICATIONS.map(n=>`
+    <div class="notif-row">
+      <div class="notif-icon" style="background:var(--${n.color==="orange"?"warn-bg":n.color==="green"?"success-bg":"accent-light"})">
+        <svg viewBox="0 0 24 24" stroke-width="2" style="stroke:var(--${n.color==="orange"?"warn":n.color==="green"?"success":"accent"})"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+      </div>
+      <div>
+        <div class="notif-title">${n.exam}<span class="notif-badge tag-${n.color==="orange"?"orange":n.color==="green"?"green":"blue"} tag">${n.status}</span></div>
+        <div class="notif-meta">${n.category} · ${n.window}</div>
+      </div>
+    </div>`).join("");
+}
+
+/* ===== FAQ ===== */
+function renderFAQ(){
+  document.getElementById("faqList").innerHTML=FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-q" onclick="toggleFaq(${i})">${f.q}<svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="faq-a">${f.a}</div>
+    </div>`).join("");
+}
+
+function toggleFaq(i){
+  const item=document.getElementById("faq-"+i);
+  item.classList.toggle("open");
+}
+
+/* ===== TOAST ===== */
+function showToast(msg){
+  const t=document.getElementById("toast");
+  document.getElementById("toastMsg").textContent=msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),2800);
+}
+
+/* ===== GLOBAL EXPOSE ===== */
+window.showPage=showPage;
+window.selectExam=selectExam;
+window.resetConverter=resetConverter;
+window.selectBg=selectBg;
+window.handleUpload=handleUpload;
+window.dlSingle=dlSingle;
+window.dlZip=dlZip;
+window.calculateAge=calculateAge;
+window.showFees=showFees;
+window.showChecklist=showChecklist;
+window.toggleFaq=toggleFaq;
+
+/* Init notifications and FAQ data on load */
+renderNotifications();
+renderFAQ();
+</script>
+</body>
+</html>
