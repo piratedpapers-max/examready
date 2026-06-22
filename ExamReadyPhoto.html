@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExamReady — Photo & Signature Converter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f1923;
+  --ink-2: #3a4a58;
+  --ink-3: #7a8fa0;
+  --ink-4: #b8c8d4;
+  --surface: #ffffff;
+  --surface-2: #f4f7fa;
+  --surface-3: #e8eff5;
+  --accent: #1a56db;
+  --accent-light: #e8effd;
+  --accent-text: #1240b0;
+  --success: #0e7c4a;
+  --success-bg: #e6f5ee;
+  --warn: #b45309;
+  --warn-bg: #fef3e2;
+  --danger: #c02222;
+  --danger-bg: #fdeaea;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(15,25,35,0.07), 0 1px 2px rgba(15,25,35,0.04);
+  --shadow-md: 0 4px 16px rgba(15,25,35,0.08), 0 2px 6px rgba(15,25,35,0.05);
+  --shadow-lg: 0 12px 40px rgba(15,25,35,0.10), 0 4px 12px rgba(15,25,35,0.06);
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition: 0.18s cubic-bezier(0.4,0,0.2,1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--surface-2);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--surface-3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 1rem;
+}
+.nav-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-icon svg { width: 18px; height: 18px; fill: white; }
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+.logo-name span { color: var(--accent); }
+.nav-tag {
+  font-size: 11px;
+  background: var(--accent-light);
+  color: var(--accent-text);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  background: var(--surface);
+  border-bottom: 1px solid var(--surface-3);
+  padding: 2.5rem 1rem 2rem;
+  text-align: center;
+}
+.hero-inner { max-width: 560px; margin: 0 auto; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-text);
+  background: var(--accent-light);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+.hero-eyebrow svg { width: 13px; height: 13px; fill: var(--accent); }
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 1.5rem;
+}
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.stat-lbl { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+
+/* MAIN */
+.main { max-width: 780px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+/* SEARCH */
+.search-section { margin-bottom: 1.5rem; }
+.search-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+  display: block;
+}
+.search-wrap { position: relative; }
+.search-wrap svg.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  stroke: var(--ink-3);
+  fill: none;
+  pointer-events: none;
+}
+#searchInput {
+  width: 100%;
+  padding: 13px 16px 13px 44px;
+  font-size: 15px;
+  font-family: var(--font-body);
+  border: 1.5px solid var(--surface-3);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+#searchInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(26,86,219,0.12);
+}
+#searchInput::placeholder { color: var(--ink-4); }
+
+/* DROPDOWN */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0; right: 0;
+  background: var(--surface);
+  border: 1.5px solid var(--surface-3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  overflow: hidden;
+  display: none;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.dropdown.open { display: block; animation: dropIn 0.15s ease; }
+@keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+.dd-category {
+  padding: 8px 14px 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--surface-2);
+}
+.dd-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--surface-2);
+  transition: background var(--transition);
+}
+.dd-item:last-child { border-bottom: none; }
+.dd-item:hover { background: var(--accent-light); }
+.dd-badge {
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--surface-3);
+  color: var(--ink-2);
+  padding: 2px 7px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* QUICK CHIPS */
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.chip {
+  padding: 6px 14px;
+  background: var(--surface);
+  border: 1.5px solid var(--surface-3);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1.5px dashed var(--surface-3);
+}
+.empty-icon {
+  width: 64px; height: 64px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+.empty-icon svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; }
+.empty-state h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.empty-state p { font-size: 14px; color: var(--ink-3); line-height: 1.5; }
+
+/* EXAM PANEL */
+.exam-panel { display: flex; flex-direction: column; gap: 1rem; }
+
+/* CARD */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--surface-3);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.card-header {
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--surface-2);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.exam-badge-big {
+  padding: 6px 12px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.exam-info { flex: 1; min-width: 0; }
+.exam-name-big {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.exam-category {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+.change-exam-btn {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--surface-3);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--ink-2);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+.change-exam-btn:hover { border-color: var(--ink-3); }
+
+/* SPEC GRID */
+.card-body { padding: 1.25rem; }
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+.spec-box {
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+.spec-type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 6px;
+}
+.spec-type svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+.spec-dims {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.spec-details { font-size: 11px; color: var(--ink-3); line-height: 1.5; }
+
+.official-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--warn-bg);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--warn);
+  margin-top: 2px;
+}
+.official-note svg { width: 14px; height: 14px; stroke: currentColor; fill: none; flex-shrink: 0; }
+.official-note a { color: var(--warn); font-weight: 600; }
+
+/* BG PICKER */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 10px;
+}
+.bg-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.bg-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.bg-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  transition: border-color var(--transition), transform var(--transition);
+  position: relative;
+}
+.bg-swatch.selected {
+  border-color: var(--accent);
+  transform: scale(1.1);
+}
+.bg-swatch::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.bg-name { font-size: 10px; color: var(--ink-3); font-weight: 500; }
+
+/* UPLOAD AREA */
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.upload-zone {
+  border: 2px dashed var(--surface-3);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  background: var(--surface-2);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.upload-zone:hover, .upload-zone.drag-over {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+.upload-zone.has-file {
+  border-color: var(--success);
+  background: var(--success-bg);
+  border-style: solid;
+}
+.upload-zone input[type=file] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.upload-zone-icon {
+  width: 40px; height: 40px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  box-shadow: var(--shadow-sm);
+}
+.upload-zone-icon svg { width: 20px; height: 20px; stroke: var(--ink-3); fill: none; }
+.upload-zone.has-file .upload-zone-icon { background: var(--success); }
+.upload-zone.has-file .upload-zone-icon svg { stroke: white; }
+.upload-zone-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.upload-zone-sub { font-size: 11px; color: var(--ink-3); }
+.upload-zone.has-file .upload-zone-title { color: var(--success); }
+.upload-zone.has-file .upload-zone-sub { color: var(--success); opacity: .7; }
+.upload-replace {
+  font-size: 10px;
+  color: var(--ink-3);
+  margin-top: 4px;
+}
+
+/* RESULTS */
+.results-section { margin-top: 0; }
+.result-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.result-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-3);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.result-card-header {
+  padding: 10px 14px;
+  background: var(--surface-2);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.result-card-header svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+.result-preview {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-conic-gradient(#e8eff5 0% 25%, transparent 0% 50%) 0 0 / 12px 12px;
+  min-height: 110px;
+}
+.result-preview img {
+  max-width: 100%;
+  max-height: 130px;
+  border-radius: 4px;
+  display: block;
+  box-shadow: var(--shadow-md);
+}
+.result-checks { padding: 10px 14px; border-top: 1px solid var(--surface-2); }
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  padding: 3px 0;
+  color: var(--ink-2);
+}
+.check-row svg { width: 14px; height: 14px; flex-shrink: 0; }
+.check-row.pass { color: var(--success); }
+.check-row.fail { color: var(--danger); }
+.check-row.pass svg { stroke: var(--success); fill: none; }
+.check-row.fail svg { stroke: var(--danger); fill: none; }
+.result-actions { padding: 10px 14px; border-top: 1px solid var(--surface-2); }
+.btn-download {
+  width: 100%;
+  padding: 9px;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all var(--transition);
+}
+.btn-download:hover { background: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-download svg { width: 15px; height: 15px; stroke: white; fill: none; }
+
+.btn-zip {
+  width: 100%;
+  padding: 13px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1.5px solid var(--surface-3);
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.btn-zip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-zip svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+
+.privacy-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--success-bg);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--success);
+  margin-top: 12px;
+}
+.privacy-banner svg { width: 15px; height: 15px; stroke: var(--success); fill: none; flex-shrink: 0; }
+
+/* PROCESSING SPINNER */
+.processing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 12px;
+}
+.spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--surface-3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.processing p { font-size: 13px; color: var(--ink-3); }
+
+/* THUMB SECTION */
+.thumb-upload-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.thumb-zone {
+  border: 2px dashed var(--surface-3);
+  border-radius: var(--radius-md);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background: var(--surface-2);
+  transition: all var(--transition);
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-zone:hover { border-color: var(--accent); background: var(--accent-light); }
+.thumb-zone.has-file { border-color: var(--success); background: var(--success-bg); border-style: solid; }
+.thumb-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.thumb-zone-icon svg { width: 22px; height: 22px; stroke: var(--ink-3); fill: none; }
+.thumb-zone.has-file .thumb-zone-icon svg { stroke: var(--success); }
+.thumb-label { font-size: 11px; font-weight: 600; color: var(--ink-2); margin-top: 4px; }
+.thumb-sub { font-size: 10px; color: var(--ink-3); }
+
+/* SECTION DIVIDER */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0.5rem 0;
+}
+.section-divider hr { flex: 1; border: none; border-top: 1px solid var(--surface-3); }
+.section-divider span { font-size: 11px; color: var(--ink-4); font-weight: 500; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  font-size: 12px;
+  color: var(--ink-4);
+  border-top: 1px solid var(--surface-3);
+  background: var(--surface);
+  margin-top: 2rem;
+}
+.footer strong { color: var(--ink-2); }
+
+/* MOBILE */
+@media (max-width: 520px) {
+  .hero { padding: 1.75rem 1rem 1.5rem; }
+  .stats-row { gap: 1.2rem; }
+  .spec-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .upload-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .result-pair { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .thumb-upload-row { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .card-header { flex-wrap: wrap; gap: 8px; }
+  .change-exam-btn { margin-left: auto; }
+  .spec-dims { font-size: 15px; }
+  .main { padding: 1rem 0.75rem 3rem; }
+}
+@media (max-width: 380px) {
+  .spec-grid { grid-template-columns: 1fr; }
+  .upload-grid { grid-template-columns: 1fr; }
+  .result-pair { grid-template-columns: 1fr; }
+  .thumb-upload-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--ink);
+  color: white;
+  padding: 11px 20px;
+  border-radius: var(--radius-lg);
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast svg { width: 15px; height: 15px; stroke: #4ade80; fill: none; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+      </div>
+      <span class="logo-name">Exam<span>Ready</span></span>
+    </a>
+    <span class="nav-tag">Free · Private · Instant</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      India's exam photo converter
+    </div>
+    <h1>Get your photo <em>exam-ready</em> in seconds</h1>
+    <p>Select your exam — we resize, compress, and format your photo and signature to the <strong>exact specs</strong> required. No rejections, no cyber-café queues.</p>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">14+</div><div class="stat-lbl">Exams covered</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">In-browser · Private</div></div>
+      <div class="stat-item"><div class="stat-num">Free</div><div class="stat-lbl">Always & forever</div></div>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <div class="search-section">
+    <label class="search-label" for="searchInput">Search your exam</label>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Try UPSC, BPSC, NEET, JEE, SSC, Railway..." autocomplete="off" spellcheck="false">
+      <div class="dropdown" id="dropdown"></div>
+    </div>
+    <div class="chips-row" id="quickChips"></div>
+  </div>
+
+  <div id="mainArea">
+    <div class="empty-state">
+      <div class="empty-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <h3>Select your exam to begin</h3>
+      <p>Search above or tap a quick-pick below. We'll load the exact photo specs for that exam.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Specs sourced from official exam notifications. Always verify at the official site before submission.</p>
+  <p style="margin-top:4px">Built for students of <strong>Bihar, India, and beyond.</strong> Your images never leave your device.</p>
+</footer>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastMsg">Downloaded!</span>
+</div>
+
+<canvas id="workCanvas" style="display:none"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const EXAMS = {
+  upsc_cse: { name:"UPSC Civil Services (IAS / IPS / IFS)", category:"Central Govt", badge:"UPSC",
+    photo:{w:200,h:230,minKB:20,maxKB:300,format:"JPG",bg:"White"},
+    sig:{w:200,h:80,minKB:4,maxKB:30,format:"JPG"}, official:"https://upsc.gov.in" },
+  upsc_capf: { name:"UPSC CAPF / CDS / NDA", category:"Central Govt", badge:"UPSC",
+    photo:{w:200,h:230,minKB:20,maxKB:300,format:"JPG",bg:"White"},
+    sig:{w:200,h:80,minKB:4,maxKB:30,format:"JPG"}, official:"https://upsc.gov.in" },
+  ssc_cgl: { name:"SSC CGL / CHSL / MTS / GD", category:"Central Govt", badge:"SSC",
+    photo:{w:100,h:120,minKB:20,maxKB:50,format:"JPG",bg:"White"},
+    sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"}, official:"https://ssc.nic.in" },
+  railway_ntpc: { name:"Railway NTPC / Group D / ALP", category:"Central Govt", badge:"RRB",
+    photo:{w:130,h:150,minKB:20,maxKB:50,format:"JPG",bg:"White"},
+    sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"}, official:"https://rrbcdg.gov.in" },
+  bpsc: { name:"BPSC (Bihar Public Service Commission)", category:"Bihar State", badge:"BPSC",
+    photo:{w:213,h:284,minKB:10,maxKB:200,format:"JPG",bg:"White"},
+    sig:{w:213,h:71,minKB:4,maxKB:30,format:"JPG"}, official:"https://bpsc.bih.nic.in" },
+  bssc: { name:"BSSC (Bihar Staff Selection Commission)", category:"Bihar State", badge:"BSSC",
+    photo:{w:150,h:200,minKB:10,maxKB:100,format:"JPG",bg:"White"},
+    sig:{w:150,h:50,minKB:4,maxKB:20,format:"JPG"}, official:"https://bssc.bihar.gov.in" },
+  bihar_police: { name:"Bihar Police Constable / SI / ASI", category:"Bihar State", badge:"BPSSC",
+    photo:{w:213,h:284,minKB:10,maxKB:100,format:"JPG",bg:"White"},
+    sig:{w:213,h:71,minKB:4,maxKB:20,format:"JPG"}, official:"https://csbc.bih.nic.in" },
+  neet: { name:"NEET UG (Medical Entrance)", category:"National / NTA", badge:"NEET",
+    photo:{w:200,h:230,minKB:10,maxKB:200,format:"JPG",bg:"White"},
+    sig:{w:160,h:60,minKB:4,maxKB:30,format:"JPG"}, official:"https://neet.nta.nic.in" },
+  jee_main: { name:"JEE Main (Engineering Entrance)", category:"National / NTA", badge:"JEE",
+    photo:{w:200,h:230,minKB:10,maxKB:200,format:"JPG",bg:"White"},
+    sig:{w:160,h:60,minKB:4,maxKB:30,format:"JPG"}, official:"https://jeemain.nta.nic.in" },
+  ibps_po: { name:"IBPS PO / Clerk / SO / RRB PO", category:"Banking", badge:"IBPS",
+    photo:{w:200,h:230,minKB:20,maxKB:50,format:"JPG",bg:"White"},
+    sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"}, official:"https://ibps.in" },
+  sbi_po: { name:"SBI PO / Clerk / Junior Associate", category:"Banking", badge:"SBI",
+    photo:{w:200,h:200,minKB:20,maxKB:50,format:"JPG",bg:"White"},
+    sig:{w:140,h:60,minKB:10,maxKB:20,format:"JPG"}, official:"https://sbi.co.in/careers" },
+  cat: { name:"CAT / XAT / IIFT (MBA Entrance)", category:"National", badge:"CAT",
+    photo:{w:144,h:192,minKB:10,maxKB:80,format:"JPG",bg:"White"},
+    sig:{w:144,h:64,minKB:4,maxKB:30,format:"JPG"}, official:"https://iimcat.ac.in" },
+  clat: { name:"CLAT / AILET (Law Entrance)", category:"National", badge:"CLAT",
+    photo:{w:200,h:230,minKB:10,maxKB:100,format:"JPG",bg:"White"},
+    sig:{w:140,h:60,minKB:4,maxKB:30,format:"JPG"}, official:"https://consortiumofnlus.ac.in" },
+  up_police: { name:"UP Police Constable / SI", category:"UP State", badge:"UPPRPB",
+    photo:{w:213,h:284,minKB:10,maxKB:100,format:"JPG",bg:"White"},
+    sig:{w:213,h:71,minKB:4,maxKB:20,format:"JPG"}, official:"https://uppbpb.gov.in" },
+};
+
+const BG_OPTIONS = [
+  { name:"White",    hex:"#ffffff" },
+  { name:"Light Blue", hex:"#d4e8f5" },
+  { name:"Sky Blue",  hex:"#add8e6" },
+  { name:"Original", hex:null },
+];
+
+const QUICK = ["upsc_cse","bpsc","bssc","neet","jee_main","ssc_cgl","ibps_po","railway_ntpc","bihar_police","sbi_po"];
+
+let state = {
+  examKey: null,
+  bgName: "White",
+  photoFile: null, sigFile: null,
+  photoResult: null, sigResult: null,
+  thumbFile: null, thumbResult: null,
+};
+
+// Quick chips
+document.getElementById("quickChips").innerHTML = QUICK.map(k =>
+  `<button class="chip" onclick="selectExam('${k}')">${EXAMS[k].badge}</button>`
+).join("");
+
+// Search
+const searchInput = document.getElementById("searchInput");
+const dropdown = document.getElementById("dropdown");
+
+searchInput.addEventListener("input", e => {
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) { dropdown.classList.remove("open"); return; }
+  const matches = Object.entries(EXAMS).filter(([k,v]) =>
+    v.name.toLowerCase().includes(q) ||
+    v.badge.toLowerCase().includes(q) ||
+    v.category.toLowerCase().includes(q)
+  );
+  if (!matches.length) { dropdown.classList.remove("open"); return; }
+  const cats = [...new Set(matches.map(([k,v]) => v.category))];
+  dropdown.innerHTML = cats.map(cat => {
+    const items = matches.filter(([k,v]) => v.category === cat);
+    return `<div class="dd-category">${cat}</div>` +
+      items.map(([k,v]) => `<div class="dd-item" onclick="selectExam('${k}')">
+        <span class="dd-badge">${v.badge}</span> ${v.name}
+      </div>`).join("");
+  }).join("");
+  dropdown.classList.add("open");
+});
+
+document.addEventListener("click", e => {
+  if (!e.target.closest(".search-wrap")) dropdown.classList.remove("open");
+});
+
+function selectExam(key) {
+  state.examKey = key;
+  state.photoFile = null; state.sigFile = null;
+  state.photoResult = null; state.sigResult = null;
+  state.thumbFile = null; state.thumbResult = null;
+  searchInput.value = EXAMS[key].name;
+  dropdown.classList.remove("open");
+  renderPanel();
+}
+
+function renderPanel() {
+  const exam = EXAMS[state.examKey];
+  const p = exam.photo, s = exam.sig;
+  document.getElementById("mainArea").innerHTML = `
+  <div class="exam-panel">
+
+    <!-- Exam header card -->
+    <div class="card">
+      <div class="card-header">
+        <span class="exam-badge-big">${exam.badge}</span>
+        <div class="exam-info">
+          <div class="exam-name-big">${exam.name}</div>
+          <div class="exam-category">${exam.category}</div>
+        </div>
+        <button class="change-exam-btn" onclick="resetExam()">Change exam</button>
+      </div>
+      <div class="card-body">
+        <div class="section-label">Required specifications</div>
+        <div class="spec-grid">
+          <div class="spec-box">
+            <div class="spec-type">
+              <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+              Passport photo
+            </div>
+            <div class="spec-dims">${p.w} × ${p.h} px</div>
+            <div class="spec-details">${p.minKB}–${p.maxKB} KB &nbsp;·&nbsp; ${p.format} &nbsp;·&nbsp; ${p.bg} bg</div>
+          </div>
+          <div class="spec-box">
+            <div class="spec-type">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Signature
+            </div>
+            <div class="spec-dims">${s.w} × ${s.h} px</div>
+            <div class="spec-details">${s.minKB}–${s.maxKB} KB &nbsp;·&nbsp; ${s.format} &nbsp;·&nbsp; White bg</div>
+          </div>
+        </div>
+        <div class="official-note">
+          <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          Always verify specs at <a href="${exam.official}" target="_blank">${exam.official}</a> before submitting
+        </div>
+      </div>
+    </div>
+
+    <!-- Background picker -->
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Photo background colour</div>
+        <div class="bg-picker" id="bgPicker">
+          ${BG_OPTIONS.map(opt => `
+            <div class="bg-option" onclick="selectBg('${opt.name}')">
+              <div class="bg-swatch${state.bgName===opt.name?' selected':''}"
+                style="background:${opt.hex ? opt.hex : 'linear-gradient(135deg,#ccc 25%,#fff 25%,#fff 50%,#ccc 50%,#ccc 75%,#fff 75%) 0 0 / 10px 10px'};">
+              </div>
+              <span class="bg-name">${opt.name}</span>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload card -->
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Upload your files</div>
+        <div class="upload-grid">
+          <div class="upload-zone${state.photoFile?' has-file':''}" id="photoZone" onclick="document.getElementById('photoInput').click()">
+            <input type="file" id="photoInput" accept="image/*" onchange="handleUpload('photo',this)">
+            <div class="upload-zone-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="upload-zone-title">${state.photoFile ? 'Photo uploaded' : 'Passport photo'}</div>
+            <div class="upload-zone-sub">${state.photoFile ? state.photoFile.name.substring(0,18)+'…' : 'Tap to upload · JPG or PNG'}</div>
+            ${state.photoFile ? '<div class="upload-replace">Tap to replace</div>' : ''}
+          </div>
+          <div class="upload-zone${state.sigFile?' has-file':''}" id="sigZone" onclick="document.getElementById('sigInput').click()">
+            <input type="file" id="sigInput" accept="image/*" onchange="handleUpload('sig',this)">
+            <div class="upload-zone-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="upload-zone-title">${state.sigFile ? 'Signature uploaded' : 'Signature'}</div>
+            <div class="upload-zone-sub">${state.sigFile ? state.sigFile.name.substring(0,18)+'…' : 'Tap to upload · JPG or PNG'}</div>
+            ${state.sigFile ? '<div class="upload-replace">Tap to replace</div>' : ''}
+          </div>
+        </div>
+
+        <div class="section-divider" style="margin:1rem 0 0.75rem">
+          <hr><span>optional extras</span><hr>
+        </div>
+        <div class="section-label">Thumb impression / Left hand thumb (if required)</div>
+        <div class="thumb-upload-row">
+          <div class="thumb-zone${state.thumbFile?' has-file':''}" onclick="document.getElementById('thumbInput').click()">
+            <input type="file" id="thumbInput" accept="image/*" onchange="handleUpload('thumb',this)">
+            <div class="thumb-zone-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+            </div>
+            <div class="thumb-label">${state.thumbFile ? '✓ Uploaded' : 'Thumb print'}</div>
+            <div class="thumb-sub">optional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="resultsArea"></div>
+
+  </div>`;
+
+  if (state.photoResult || state.sigResult) renderResults();
+}
+
+function resetExam() {
+  state = { examKey:null, bgName:"White", photoFile:null, sigFile:null, photoResult:null, sigResult:null, thumbFile:null, thumbResult:null };
+  searchInput.value = "";
+  document.getElementById("mainArea").innerHTML = `<div class="empty-state">
+    <div class="empty-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+    <h3>Select your exam to begin</h3>
+    <p>Search above or tap a quick-pick to load exam-specific specs.</p>
+  </div>`;
+}
+
+function selectBg(name) {
+  state.bgName = name;
+  document.querySelectorAll(".bg-swatch").forEach((el,i) => {
+    el.classList.toggle("selected", BG_OPTIONS[i].name === name);
+  });
+  if (state.photoFile) processFile("photo", state.photoFile);
+}
+
+function handleUpload(type, input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (type === "photo") state.photoFile = file;
+  else if (type === "sig") state.sigFile = file;
+  else state.thumbFile = file;
+  renderPanel();
+  processFile(type, file);
+}
+
+function processFile(type, file) {
+  const exam = EXAMS[state.examKey];
+  const spec = type === "photo" ? exam.photo : (type === "sig" ? exam.sig : {w:200,h:80,minKB:4,maxKB:30,format:"JPG"});
+  const resultsArea = document.getElementById("resultsArea");
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.getElementById("workCanvas");
+      canvas.width = spec.w; canvas.height = spec.h;
+      const ctx = canvas.getContext("2d");
+      const bgOpt = BG_OPTIONS.find(o => o.name === state.bgName);
+      ctx.fillStyle = (type === "photo" && bgOpt && bgOpt.hex) ? bgOpt.hex : "#ffffff";
+      ctx.fillRect(0, 0, spec.w, spec.h);
+      const scale = Math.min(spec.w / img.width, spec.h / img.height);
+      const sw = img.width * scale, sh = img.height * scale;
+      ctx.drawImage(img, (spec.w-sw)/2, (spec.h-sh)/2, sw, sh);
+      let quality = 0.94, dataUrl, kb;
+      do {
+        dataUrl = canvas.toDataURL("image/jpeg", quality);
+        kb = Math.round(dataUrl.length * 0.75 / 1024);
+        quality -= 0.05;
+      } while (kb > spec.maxKB && quality > 0.2);
+      const result = { dataUrl, kb, w: spec.w, h: spec.h, spec };
+      if (type === "photo") state.photoResult = result;
+      else if (type === "sig") state.sigResult = result;
+      else state.thumbResult = result;
+      renderResults();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderResults() {
+  const exam = EXAMS[state.examKey];
+  const area = document.getElementById("resultsArea");
+  if (!state.photoResult && !state.sigResult && !state.thumbResult) { area.innerHTML=""; return; }
+
+  function resultCard(result, type, specObj, label) {
+    if (!result) return "";
+    const okKB = result.kb >= specObj.minKB && result.kb <= specObj.maxKB;
+    const okDim = result.w === specObj.w && result.h === specObj.h;
+    const icons = {
+      ok: `<svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>`,
+      fail: `<svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>`
+    };
+    return `<div class="result-card">
+      <div class="result-card-header">
+        <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m21 15-5-5L5 21"/></svg>
+        ${label}
+      </div>
+      <div class="result-preview">
+        <img src="${result.dataUrl}" alt="${label} preview">
+      </div>
+      <div class="result-checks">
+        <div class="check-row ${okDim?'pass':'fail'}">${okDim?icons.ok:icons.fail} ${result.w}×${result.h} px ${okDim?'✓':'mismatch'}</div>
+        <div class="check-row ${okKB?'pass':'fail'}">${okKB?icons.ok:icons.fail} ${result.kb} KB ${okKB?'within range':'out of range'}</div>
+        <div class="check-row pass">${icons.ok} JPG format ✓</div>
+      </div>
+      <div class="result-actions">
+        <button class="btn-download" onclick="dlSingle('${type}')">
+          <svg viewBox="0 0 24 24" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download ${label}
+        </button>
+      </div>
+    </div>`;
+  }
+
+  const photoCard = resultCard(state.photoResult, "photo", exam.photo, "Photo");
+  const sigCard = resultCard(state.sigResult, "sig", exam.sig, "Signature");
+  const thumbCard = resultCard(state.thumbResult, "thumb", {w:200,h:80,minKB:4,maxKB:30}, "Thumb print");
+
+  const showZip = [state.photoResult, state.sigResult, state.thumbResult].filter(Boolean).length >= 2;
+
+  area.innerHTML = `
+    <div class="card">
+      <div class="card-body">
+        <div class="section-label">Processed — ready to download</div>
+        <div class="result-pair">
+          ${photoCard}
+          ${sigCard}
+        </div>
+        ${thumbCard ? `<div class="result-pair" style="grid-template-columns:1fr 1fr">${thumbCard}</div>` : ""}
+        ${showZip ? `
+          <button class="btn-zip" onclick="dlZip()">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download all as ZIP (${state.examKey.replace("_"," ").toUpperCase()} exam pack)
+          </button>
+        ` : ""}
+        <div class="privacy-banner">
+          <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          All processing happens in your browser. Your images are never uploaded to any server.
+        </div>
+      </div>
+    </div>`;
+}
+
+function dlSingle(type) {
+  const exam = EXAMS[state.examKey];
+  const result = type==="photo" ? state.photoResult : type==="sig" ? state.sigResult : state.thumbResult;
+  const label = type==="photo" ? "photo" : type==="sig" ? "signature" : "thumb";
+  const name = exam.badge.toLowerCase().replace(/[^a-z0-9]/g,"_");
+  const a = document.createElement("a");
+  a.href = result.dataUrl;
+  a.download = `${name}_${label}.jpg`;
+  a.click();
+  showToast(`${label.charAt(0).toUpperCase()+label.slice(1)} downloaded!`);
+}
+
+async function dlZip() {
+  const exam = EXAMS[state.examKey];
+  const name = exam.badge.toLowerCase().replace(/[^a-z0-9]/g,"_");
+  const zip = new JSZip();
+  const pairs = [
+    [state.photoResult, `${name}_photo.jpg`],
+    [state.sigResult,   `${name}_signature.jpg`],
+    [state.thumbResult, `${name}_thumb.jpg`],
+  ].filter(([r]) => r);
+  for (const [result, fname] of pairs) {
+    const res = await fetch(result.dataUrl);
+    zip.file(fname, await res.blob());
+  }
+  const blob = await zip.generateAsync({ type:"blob" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = `${name}_exam_pack.zip`; a.click();
+  URL.revokeObjectURL(url);
+  showToast("Exam pack downloaded!");
+}
+
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  document.getElementById("toastMsg").textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2800);
+}
+
+window.selectExam = selectExam;
+window.resetExam = resetExam;
+window.selectBg = selectBg;
+window.handleUpload = handleUpload;
+window.dlSingle = dlSingle;
+window.dlZip = dlZip;
+</script>
+</body>
+</html>
